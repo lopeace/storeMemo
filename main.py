@@ -1,4 +1,4 @@
-# 매장 정보 메모 프로그램 v0.1
+# 매장 정보 메모 프로그램 v0.2
 # Author : Hyuntek Lim
 
 import pandas as pd
@@ -39,16 +39,31 @@ def dataRead(csvName,query):
     except:
         print('Error : 데이터를 읽어올 수 없습니다.')
 
+def createWriteFrame():
+    WriteFrame = tk.Toplevel(mainFrame)
+
+def createReadFrame():
+    ReadFrame = tk.Toplevel(mainFrame)
+
 
 #system initiation
-
 workspace(workingPath)
+mainFrame = tk.Tk()
+mainFrame.title("매장 정보 메모 프로그램")
+mainFrame.geometry("260x240+100+100")
 
 
+#GUI initiation
+label = tk.Label(mainFrame, text='매장 정보 메모 프로그램', font='21').pack(pady=5)
+Write = tk.Button(mainFrame, text='메모 추가', width=10, height= 3).pack(pady=10)
+Read = tk.Button(mainFrame, text='자료 조회', width=10, height= 3).pack(pady=10)
+
+mainFrame.mainloop()
 
 
 
 #sample code
-dataWrite('sample.csv', '010-5061-5917', '5354', '한글이 깨질까? 아님 안깨질까?' )
+
+#dataWrite('sample.csv', '010-5061-5917', '5354', '한글이 깨질까? 아님 안깨질까?' )
 
 print(pd.read_csv('sample.csv'))
